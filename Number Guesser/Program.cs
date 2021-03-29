@@ -44,15 +44,11 @@ namespace Number_Guesser
         static void Main(string[] args)
         {
             int tries = 10;
-            Boolean numCheck = false;
             print();
             string input = Console.ReadLine();
             Console.WriteLine(" ");
             if (checkWord(input))
             {
-               
-               
-
                 try
                 {
                     do
