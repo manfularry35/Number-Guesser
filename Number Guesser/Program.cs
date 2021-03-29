@@ -51,23 +51,25 @@ namespace Number_Guesser
             if (checkWord(input))
             {
                
-                Console.WriteLine("----------------------------------------");
-                Console.WriteLine("Enter a number (more than 10000): ");
+               
 
                 try
                 {
-                    max = int.Parse(Console.ReadLine());
-                    if (max < 10000)
+                    do
                     {
-                        throw new BelowLimitException(max);
-                    }
+                        Console.WriteLine("----------------------------------------");
+                        Console.WriteLine("Enter a number (more than 10000): ");
+                        max = int.Parse(Console.ReadLine());
+                    } while (max < 10000);
+                    
+                    
                 }
                 catch (FormatException e)
                 {
                     Console.WriteLine("Enter a number only please... ");
                 }
 
-                max = Convert.ToInt32(Console.ReadLine());
+                
 
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("A number will now be generated for you to guess. ");
@@ -78,17 +80,19 @@ namespace Number_Guesser
                 Console.WriteLine("Enter your guess!");
                 Console.WriteLine("You have "+ tries + " tries to make your guess.");
 
-                while (status != false || tries != 0  )
+                while (status != false && tries != 0  )
                 {
                     guess = Convert.ToInt32(Console.ReadLine());
                     if (guess > random_num)
                     {
+                        Console.WriteLine("----------------------------------------");
                         Console.WriteLine("Try a smaller number!");
                         tries--;
                         Console.WriteLine("You have " + tries.ToString() + " tries left" );
                     }
                     else if (guess < random_num)
                     {
+                        Console.WriteLine("----------------------------------------");
                         Console.WriteLine("Try a bigger number!");
                         tries--;
                         Console.WriteLine("You have " + tries.ToString() + " tries left");
